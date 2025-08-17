@@ -2,11 +2,14 @@
 #include <stdlib.h>
 #include <time.h>
 
-int main(void) {
+int main(int argc, char **argv) {
+  if (argc < 2 || !argv[1]) return 1;
   srand(time(NULL));
-  if (rand() % 2)
-    puts("Heads");
-  else
-    puts("Tails");
+  for (int i = 0; i < atoi(argv[1]); ++i) {
+    if (rand() % 2)
+      puts("Heads");
+    else
+      puts("Tails");
+  }
   return 0;
 }
